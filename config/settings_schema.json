@@ -34,6 +34,12 @@
       },
       {
         "type": "color",
+        "id": "color_gridprice_text",
+        "label": "Price Grid text",
+        "default": "#7796A8"
+      },
+      {
+        "type": "color",
         "id": "color_borders",
         "label": "Borders and lines",
         "default": "#e8e9eb"
@@ -727,6 +733,38 @@
           {
             "value": "20px",
             "label": "20px"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "type_gridprice_size",
+        "label": "Price (Grid) Size",
+        "default": "16px",
+        "options": [
+          {
+            "value": "16px",
+            "label": "16px"
+          },
+          {
+            "value": "17px",
+            "label": "17px"
+          },
+          {
+            "value": "18px",
+            "label": "18px"
+          },
+          {
+            "value": "19px",
+            "label": "19px"
+          },
+          {
+            "value": "20px",
+            "label": "20px"
+          },
+          {
+            "value": "22px",
+            "label": "22px"
           }
         ]
       },

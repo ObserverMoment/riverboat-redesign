@@ -9,6 +9,11 @@
     {%- assign max_height = 195 -%}
 {% endcase %}
 
+{% if collection.description != blank %}
+  {% assign descriptions = collection.description | split: "!--split--!" %}
+  {% assign main_description = descriptions[0] %}
+{% endif %}
+
 {% if section.settings.layout == 'grid' %}
   {%- assign limit = section.settings.grid | times: section.settings.rows -%}
 {% else %}
@@ -37,7 +42,7 @@
 
       {% if collection.description != blank %}
         <div class="rte collection-description page-width">
-          {{ collection.description }}
+          {{ main_description }}
         </div>
       {% endif %}
     {% else %}
@@ -46,7 +51,7 @@
           <h1>{{ collection.title }}</h1>
           {% if collection.description != blank %}
             <div class="rte">
-              {{ collection.description }}
+              {{ main_description }}
             </div>
           {% endif %}
         </div>

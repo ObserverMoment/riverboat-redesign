@@ -309,6 +309,7 @@ $color-small-button-text: {{ settings.color_small_button_text }};
 $color-text-field: {{ settings.color_text_field }};
 $color-text-field-text: {{ settings.color_text_field_text }};
 $color-navigation-text: {{ settings.color_text }};
+$color_gridprice_text: {{ settings.color_gridprice_text }};
 
 // Button colors
 $color-btn-primary: {{ settings.color_button }};
@@ -360,8 +361,8 @@ $color-pinterest: #cb2027;
 $width-site: 1200px;
 $gutter-site: 55px;
 $gutter-site-mobile: 22px;
-$section-spacing: 55px;
-$section-spacing-small: 35px;
+$section-spacing: 30px;
+$section-spacing-small: 25px;
 $border-radius: 2px;
 
 /*================ Z-Index ================*/
@@ -417,6 +418,7 @@ $font-bold-titles: {{ settings.type_bold_product_titles }};
 
 $font-stack-body: {{ base_family }};
 $font-size-base: {{ settings.type_base_size }}; // Henseforth known as 1em
+$font-size-grid-price: {{ settings.type_gridprice_size }};
 
 $font-stack-cart-notification: "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
 
@@ -913,6 +915,7 @@ $grid-breakpoints: (
   float: left;
   padding-left: $grid-gutter;
   width: 100%;
+  text-align: center;
 
   @include media-query($small) {
     padding-left: $grid-gutter-mobile;
@@ -2235,7 +2238,8 @@ $dropdown-padding: 11px 17px;
   position: relative;
   padding: 0;
   text-align: center;
-  margin: 8px 0;
+  margin-left: 15px;
+  margin-right: -15px;
 
   a {
     padding: 3px 10px;
@@ -2591,7 +2595,8 @@ hr {
 
 .product-price__price {
   display: inline-block;
-  color: $color-body-text;
+  color: $color_gridprice_text;
+  font-size: $font-size-grid-price;
 }
 
 .product-price__sale {
@@ -2845,11 +2850,13 @@ $slick-dot-size-small: 10px;
 /*================ Index sections ================*/
 .index-section {
   padding-top: 20px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid #f3f3f3;
 
   @include media-query($medium-up) {
     padding-top: 20px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
   }
 
   &:first-child {
@@ -3619,7 +3626,7 @@ h1.product-single__title {
 .site-header {
   background-color: $color-body;
   position: relative;
-  padding: 0 $gutter-site;
+  padding: 0 50px;
 
   @include media-query($small) {
     border-bottom: 1px solid $color-border;
@@ -3857,6 +3864,7 @@ h1.product-single__title {
 
 .article__title {
   margin-bottom: $gutter-site-mobile / 2;
+  font-size: 1.3em;
 }
 
 .article__author {
@@ -5492,7 +5500,6 @@ $toolbar-height-small: 46px;
 }
 
 .collection-grid {
-  margin-bottom: -$gutter-site-mobile;
   overflow: auto;
 }
 
