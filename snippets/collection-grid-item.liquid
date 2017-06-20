@@ -6,10 +6,13 @@
   {% assign collection_image = blank %}
 {% endif %}
 
-<div class="collection-grid-item text-center">
-  <a href="{% if collection.products == empty %}#{% else %}{{ collection.url }}{% endif %}" class="collection-grid-item__link">
-    <div class="collection-grid-item--homepage__image">
-      <img src="{{ collection_image | img_url: '300x300' }}">
+{% assign descriptions = collection.description | split: "!--split--!" %}
+{% assign homepage_desc = descriptions[1] %}
+
+<div class="collection-grid-item--homepage text-center">
+  <a href="{% if collection.products == empty %}#{% else %}{{ collection.url }}{% endif %}">
+    <div>
+      <img  class="collection-grid-item--homepage__image" src="{{ collection_image | img_url: '300x300' }}">
     </div>
     <div class="collection-grid-item__title-wrapper">
       <h3 class="collection-grid-item--homepage__title">
@@ -21,7 +24,7 @@
       </h3>
     </div>
     <div class="collection-grid-item--homepage__description">
-      {{ collection.description }}
+      {{ homepage_desc }}
     </div>
      <noscript>
        <div class="collection-grid-item__overlay"{% unless collection_image == blank %} style="background-image: url('{{ collection_image | img_url: '340x340' }}')"{% endunless %}></div>
