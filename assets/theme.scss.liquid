@@ -419,7 +419,6 @@ $font-bold-titles: {{ settings.type_bold_product_titles }};
 $font-stack-body: {{ base_family }};
 $font-size-base: {{ settings.type_base_size }}; // Henseforth known as 1em
 $font-size-grid-price: {{ settings.type_gridprice_size }};
-$font-size-prodpage-price: {{ settings.type_prodprice_size }};
 
 
 $font-stack-cart-notification: "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -1153,6 +1152,10 @@ $grid-breakpoints: (
 
 .hide {
   display: none !important;
+}
+
+.box-border-bottom {
+  border-bottom: 1px solid rgb(236, 236, 236);
 }
 
 /*============================================================================
@@ -3032,13 +3035,14 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
 h1.product-single__title {
   margin-bottom: 0;
+  font-size: 20px;
 }
 
 .product-single__price {
   color: $color-body-text;
   font-size: em($font-size-base + 4);
   font-weight: $font-weight-header;
-  margin-bottom: $grid-gutter;
+  margin-bottom: 5px;
 
   @include media-query($small) {
     display: block;
@@ -3094,11 +3098,11 @@ h1.product-single__title {
 }
 
 .product-form__item--quantity {
-  @include flex(0 0 100px);
+  @include flex(0 0 75px);
 }
 
 .product-form__item--submit {
-  @include flex-basis(200px);
+  @include flex-basis(100px);
 }
 
 .product-form__input {
@@ -3122,7 +3126,10 @@ h1.product-single__title {
 }
 
 .product-single__description {
-  margin-top: $grid-gutter;
+  background-color: #fbfbfb;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #f9f9f9;
 }
 
 /*================ Product Images ================*/
@@ -3256,6 +3263,56 @@ h1.product-single__title {
     margin: 0 auto;
     width: 50px;
   }
+}
+
+/*================ Product Page Meta Fields and Info ================*/
+
+.product-page__info {
+  display: inline;
+}
+
+.product__title-buy-form {
+  margin-bottom: 10px;
+  float: left;
+  padding: 15px 5px;
+  text-align: center;
+}
+.product__infoboxes-holder {
+  font-size: 15px;
+}
+
+.product__payment-types {
+  margin: 10px 0;
+}
+
+.product__delivery-info, .product__weights-dims {
+  padding: 15px 5px;
+}
+
+.product__trustboxes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product__trustbox__widget {
+  margin: 10px;
+}
+
+.product__guarantee {
+  width: 80px;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+.product-page__payment-icon {
+  width: 50px;
+  height: 35px;
+  display: inline-grid;
+}
+
+.product__share-buttons {
+  font-size: 0.7em;
 }
 
 /*================ Template | Collections ================*/
@@ -3621,6 +3678,10 @@ h1.product-single__title {
     border: 0;
     background: transparent;
   }
+}
+
+.cartpage__trustpilot-widget {
+  border-top: 1px solid rgb(231, 231, 231);
 }
 
 

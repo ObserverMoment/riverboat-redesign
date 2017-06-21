@@ -1,0 +1,27 @@
+<div class="product__trustboxes box-border-bottom">
+  <div class="product__trustbox__widget">
+    <!-- TrustBox widget - Mini -->
+    <div class="trustpilot-widget" data-locale="en-GB" data-template-id="53aa8807dec7e10d38f59f32" data-businessunit-id="575ad59b0000ff00058ff4fa" data-style-height="100px" data-style-width="160px" data-theme="light">
+      <a href="https://uk.trustpilot.com/review/riverboatgaming-poker.co.uk" target="_blank">Trustpilot</a>
+    </div>
+    <!-- End TrustBox widget -->
+  </div>
+  <div class="product__guarantee">
+    <a href="/pages/returns">
+      {% include 'icon-moneyback-grey' %}
+      Click for Terms
+    </a>
+  </div>
+</div>
+<div class="product__payment-types">
+  <ul>
+    {% for type in shop.enabled_payment_types %}
+      <li class="product-page__payment-icon"><img src="{{ type | payment_type_img_url }}" /></li>
+    {% endfor %}
+  </ul>
+</div>
+<div class="product__share-buttons">
+  {% if section.settings.show_share_buttons %}
+    {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+  {% endif %}
+</div>
