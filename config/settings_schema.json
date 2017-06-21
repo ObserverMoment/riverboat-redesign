@@ -769,6 +769,38 @@
         ]
       },
       {
+        "type": "select",
+        "id": "type_prodprice_size",
+        "label": "Price (Product Page) Size",
+        "default": "16px",
+        "options": [
+          {
+            "value": "16px",
+            "label": "16px"
+          },
+          {
+            "value": "17px",
+            "label": "17px"
+          },
+          {
+            "value": "18px",
+            "label": "18px"
+          },
+          {
+            "value": "19px",
+            "label": "19px"
+          },
+          {
+            "value": "20px",
+            "label": "20px"
+          },
+          {
+            "value": "22px",
+            "label": "22px"
+          }
+        ]
+      },
+      {
         "type": "checkbox",
         "id": "type_bold_product_titles",
         "label": "Bold product titles"

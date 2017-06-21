@@ -131,7 +131,7 @@
               <span class="product-price__price product-price__price-{{ section.id }}">
                 <span id="ProductPrice-{{ section.id }}"
                   itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
-                  {{ current_variant.price | money }}
+                  {{ current_variant.price | money }} Inc VAT and Delivery
                 </span>
                 <span class="product-price__sale-label product-price__sale-label-{{ section.id }} hide">{{ 'products.product.on_sale' | t }}</span>
               </span>
