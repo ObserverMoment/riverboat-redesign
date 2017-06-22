@@ -30,11 +30,11 @@
   Never pick related items from those.
 {% endcomment %}
 
-{% assign exclusions = 'table_tops_and_layouts' | split: ',' %}
+{% assign exclusions = '' | split: ',' %}
 
 {% comment %}
-  Looking for a relevant collection.
-{% endcomment %}
+  Looking for a relevant collection. This is commented out as we are selecting our collection manually.
+
 
 {% if product.metafields.c_f['Related Products'] %}
   {% assign collection = collections[product.metafields.c_f['Related Products']] %}
@@ -56,15 +56,22 @@
   {% endfor %}
 {% endunless %}
 
-{% comment %}
-  If we have a relevant collection.
 {% endcomment %}
 
+{% comment %}
+  If we have a relevant collection. We do as we are assigning one manually below.
+{% endcomment %}
+{% assign found_a_collection = true %}
 {% if found_a_collection %}
 
   {% assign counter = 0 %}
   {% assign break_at = number_of_rows | times: number_of_related_products_per_row %}
   {% assign current_product = product %}
+  {% comment %}
+    Use the home page collection as this contains all products on the website. The handle / SEO id is home-page.
+  {% endcomment %}
+  {% assign collection = collections["our-products"] %}
+  {% assign totalProducts = collection.all_products_count %}
 
   {% case number_of_related_products_per_row %}
     {% when '1' %}
@@ -87,21 +94,33 @@
   {% capture related_items %}
 <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
 
-  {% for product in collection.products %}
-    {% unless product.handle == current_product.handle %}
-    {% unless same_vendor and current_product.vendor != product.vendor %}
-    {% unless same_type and current_product.type != product.type %}
-      <div class="grid__item {{ grid_item_width }}">
-        {% include 'product-card-grid' %}
-      </div>
-      {% assign counter = counter | plus: 1 %}
-      {% if counter == break_at %}
-        {% break %}
-      {% endif %}
-    {% endunless %}
-    {% endunless %}
-    {% endunless %}
+  {% for i in (1..break_at) %}
+    {% capture randIndex %}
+      {{ 'now' | date: '%S' | times: collection.products.size | divided_by: 60 }}
+    {% endcapture %}
+    {% assign index = randIndex | plus: 0 %}
+    {% comment %} If you randomly choose the same product as the page we are on then just add one to the index {% endcomment %}
+    {% if collection.products[index].handle == current_product.handle %}
+      {% comment %} Need to work out how to do this... {% endcomment %}
+      {% assign product = collection.products[index] %}
+    {% else %}
+      {% assign product = collection.products[index] %}
+    {% endif %}
+
+
+    <div class="grid__item {{ grid_item_width }}">
+      {{ randIndex }}
+      {% include 'product-card-grid' %}
+    </div>
+
   {% endfor %}
+
+
+
+
+
+
+
 </div>
   {% endcapture %}
 
