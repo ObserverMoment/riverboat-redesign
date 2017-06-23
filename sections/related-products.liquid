@@ -20,43 +20,19 @@
 {% comment %}
   Set either or both to true, if you want
   to limit yourself to items with same vendor, and/or type.
-{% endcomment %}
 
-{% assign same_vendor = false %}
-{% assign same_type = false %}
+  {% assign same_vendor = false %}
+  {% assign same_type = false %}
+{% endcomment %}
 
 {% comment %}
   Collections to ignore.
   Never pick related items from those.
+
+  {% assign exclusions = '' | split: ',' %}
 {% endcomment %}
 
-{% assign exclusions = '' | split: ',' %}
 
-{% comment %}
-  Looking for a relevant collection. This is commented out as we are selecting our collection manually.
-
-
-{% if product.metafields.c_f['Related Products'] %}
-  {% assign collection = collections[product.metafields.c_f['Related Products']] %}
-{% endif %}
-
-{% assign found_a_collection = false %}
-{% if collection and collection.all_products_count > 1 %}
-  {% unless exclusions contains collection.handle %}
-    {% assign found_a_collection = true %}
-  {% endunless %}
-{% endif %}
-{% unless found_a_collection %}
-  {% for c in product.collections %}
-    {% unless exclusions contains c.handle or c.all_products_count < 2 %}
-      {% assign found_a_collection = true %}
-      {% assign collection = c %}
-      {% break %}
-    {% endunless %}
-  {% endfor %}
-{% endunless %}
-
-{% endcomment %}
 
 {% comment %}
   If we have a relevant collection. We do as we are assigning one manually below.
@@ -96,30 +72,22 @@
 
   {% for i in (1..break_at) %}
     {% capture randIndex %}
-      {{ 'now' | date: '%S' | times: collection.products.size | divided_by: 60 }}
+      {{ 'now' | date: '%S' | times: collection.products.size | divided_by: 60 | times: i | modulo: collection.products.size }}
     {% endcapture %}
     {% assign index = randIndex | plus: 0 %}
     {% comment %} If you randomly choose the same product as the page we are on then just add one to the index {% endcomment %}
     {% if collection.products[index].handle == current_product.handle %}
-      {% comment %} Need to work out how to do this... {% endcomment %}
+      {% assign index = randIndex | plus: 1 %}
       {% assign product = collection.products[index] %}
     {% else %}
       {% assign product = collection.products[index] %}
     {% endif %}
 
-
     <div class="grid__item {{ grid_item_width }}">
-      {{ randIndex }}
       {% include 'product-card-grid' %}
     </div>
 
   {% endfor %}
-
-
-
-
-
-
 
 </div>
   {% endcapture %}
@@ -147,6 +115,7 @@
 
 </div>
 {% endif %}
+
 
 {% schema %}
 {
