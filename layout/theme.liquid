@@ -101,9 +101,10 @@
 
   <div class="page-container" id="PageContainer">
 
-    {% unless template == 'product' or 'cart' %}{% include 'trustpilot-micro-widget' %}{% endunless %}
+    {% unless template == 'product' or template == 'cart' %}{% include 'trustpilot-micro-widget' %}{% endunless %}
 
     <main class="main-content" id="MainContent" role="main">
+      {% if template == 'product' %}{% include 'breadcrumbs' %}{% endif %}
       {{ content_for_layout }}
     </main>
 

@@ -1698,6 +1698,7 @@ a {
   letter-spacing: 0.08em;
   white-space: normal;
   font-size: $font-size-base - 2;
+  box-shadow: 1px 1px 1px 1px #d6d6d6;
 
   @include media-query($medium-up) {
     padding: $input-padding-top-bottom $input-padding-left-right;
@@ -3113,6 +3114,7 @@ h1.product-single__title {
 .product-form__cart-submit {
   display: block;
   width: 100%;
+  font-weight: bold;
   line-height: 1.4;
   padding-left: 5px;
   padding-right: 5px;
@@ -3130,6 +3132,7 @@ h1.product-single__title {
   border-radius: 10px;
   padding: 20px;
   border: 1px solid #f9f9f9;
+  clear: both;
 }
 
 /*================ Product Images ================*/
@@ -3139,7 +3142,7 @@ h1.product-single__title {
   border: 1px solid transparent;
 
   &.active-thumb {
-    border-color: #78d2f1;
+    border-color: #a1b7bf;
   }
 }
 
@@ -3268,14 +3271,11 @@ h1.product-single__title {
 /*================ Product Page Meta Fields and Info ================*/
 
 .product-page__info {
-  display: inline;
+  float: right;
 }
 
 .product__title-buy-form {
-  margin-bottom: 10px;
-  float: left;
   padding: 15px 5px;
-  text-align: center;
 }
 .product__infoboxes-holder {
   font-size: 15px;
@@ -3286,7 +3286,7 @@ h1.product-single__title {
 }
 
 .product__delivery-info, .product__weights-dims {
-  padding: 15px 5px;
+  padding: 15px 3px;
 }
 
 .product__trustboxes-holder {
@@ -3693,6 +3693,7 @@ h1.product-single__title {
   background-color: $color-body;
   position: relative;
   padding: 0 50px;
+  box-shadow: 1px 1px 4px #d0d0d0;
 
   @include media-query($small) {
     border-bottom: 1px solid $color-border;
@@ -3725,6 +3726,19 @@ h1.product-single__title {
   @include media-query($medium-up) {
     padding: 10px $gutter-site;
   }
+}
+
+.trustpilot-widget--micro {
+  margin: 5px 0;
+}
+
+.breadcrumb {
+  padding: 0 $gutter-site;
+}
+
+.breadcrumb a {
+  color: #09a5e3;
+  font-weight: bold;
 }
 
 .site-header__logo {
@@ -5046,6 +5060,9 @@ $toolbar-height-small: 46px;
 
 .site-footer {
   margin: $section-spacing 0;
+  border-top: 1px solid #e6e6e6;
+  background-color: #f9f9f9;
+  padding-bottom: 15px;
 
   @include media-query($small) {
     text-align: center;
@@ -5056,6 +5073,7 @@ $toolbar-height-small: 46px;
   .site-footer__linklist--center {
     margin-top: $section-spacing-small;
     padding-right: 0;
+    font-size: em($font-size-base + 2px);
   }
 }
 
@@ -5305,6 +5323,7 @@ $toolbar-height-small: 46px;
   background-color: $color-background-hero-button;
   color: $color-text-hero-button;
   margin-top: $section-spacing / 2;
+  box-shadow: 0 0 0 0;
 }
 
 /*================ Quote slider ================*/
