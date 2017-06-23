@@ -35,25 +35,35 @@
       {%- assign enable_zoom = false -%}
   {% endcase %}
 
-  <div class="grid__item product-single__photos {{ product_image_width }}{% if section.settings.image_size == 'full' %} product-single__photos--full{% endif %}">
-    {% include 'product-page-images' %}
+  <div class="product-page__top-section__container clearfix">
+
+    <div class="product-page__top-section__left-col grid__item product-single__photos {{ product_image_width }}">
+      {% include 'product-page-images' %}
+    </div>
+
+    {% comment %}
+    <div class="grid__item product-single__photos {{ product_image_width }}{% if section.settings.image_size == 'full' %} product-single__photos--full{% endif %}">
+      {% include 'product-page-images' %}
+    </div>
+    {% endcomment %}
+
+    <div class="product-page__top-section__right-col {{ product_description_width }} text-center">
+
+      <div class="product__title-buy-form">
+        {% include 'product-page-title-form' %}
+      </div>
+
+      <div class="product__infoboxes-holder">
+        {% include 'product-page-infoboxes' %}
+      </div>
+
+      <div class="product__trustboxes-holder">
+        {% include 'product-page-trustboxes' %}
+      </div>
+
+    </div>
+
   </div>
-
-  <div class="grid__item{{ product_description_width }} text-center">
-
-    <div class="product__title-buy-form">
-      {% include 'product-page-title-form' %}
-    </div>
-
-    <div class="product__infoboxes-holder">
-      {% include 'product-page-infoboxes' %}
-    </div>
-
-    <div class="product__trustboxes-holder">
-      {% include 'product-page-trustboxes' %}
-    </div>
-
-  </div> {% comment %} End of the main page holder {% endcomment %}
 
   <div class="product-single__description rte" itemprop="description">
     {{ product.description }}

@@ -1798,7 +1798,7 @@ a {
 
 /*================ Return to collection/blog links ================*/
 .return-link-wrapper {
-  margin: ($gutter-site * 1.5) 0;
+  margin: $gutter-site 0;
 
   @include media-query($small) {
     margin-bottom: (-$section-spacing) - 1; // same as .site-footer
@@ -3128,6 +3128,7 @@ h1.product-single__title {
 }
 
 .product-single__description {
+  margin-top: 10px;
   background-color: #fbfbfb;
   border-radius: 10px;
   padding: 20px;
@@ -3268,10 +3269,22 @@ h1.product-single__title {
   }
 }
 
-/*================ Product Page Meta Fields and Info ================*/
+/*================ Product Page Layout, Meta Fields and Info ================*/
 
-.product-page__info {
-  float: right;
+.product-page__top-section__right-col {
+  background-color: #fbfbfb;
+  border-radius: 10px;
+  padding: 5px;
+  border: 1px solid #f9f9f9;
+  margin-top: 10px;
+  @include media-query($medium-up) {
+    float: right;
+  }
+}
+
+.product-page__top-section__left-col {
+  float: left;
+  padding: 5px;
 }
 
 .product__title-buy-form {
@@ -3287,9 +3300,6 @@ h1.product-single__title {
 
 .product__delivery-info, .product__weights-dims {
   padding: 15px 3px;
-}
-
-.product__trustboxes-holder {
 }
 
 .product__trustboxes {
