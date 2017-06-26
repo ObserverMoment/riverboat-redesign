@@ -1225,6 +1225,7 @@ html {
 
 .section-header {
   margin-bottom: $section-spacing-small;
+  font-size: em($font-size-base - 1px);;
 
   @include media-query($medium-up) {
     margin-bottom: $section-spacing;
@@ -1477,6 +1478,10 @@ li {
 .mega-title,
 .mega-subtitle {
   text-shadow: 0 0 15px $color-text-shadow;
+  display: none;
+  @include media-query($medium-up) {
+    display: block;
+  }
 }
 
 .mega-title {
@@ -2244,8 +2249,8 @@ $dropdown-padding: 11px 17px;
   position: relative;
   padding: 0;
   text-align: center;
-  margin-left: 15px;
-  margin-right: -15px;
+  margin-left: 60px;
+  margin-right: -50px;
 
   a {
     padding: 3px 10px;
@@ -3695,6 +3700,7 @@ h1.product-single__title {
 
 .cartpage__trustpilot-widget {
   border-top: 1px solid rgb(231, 231, 231);
+  margin-top: 40px;
 }
 
 
@@ -3744,6 +3750,10 @@ h1.product-single__title {
 
 .breadcrumb {
   padding: 0 $gutter-site;
+  display: none;
+  @include media-query($medium-up) {
+    display: block;
+  }
 }
 
 .breadcrumb a {
@@ -3804,6 +3814,10 @@ h1.product-single__title {
 .site-header__icons {
   position: relative;
   white-space: nowrap;
+  @include media-query($medium-up) {
+    width: 30%;
+  }
+
 }
 
 .site-header__icons-wrapper {
@@ -4450,6 +4464,7 @@ $mobile-nav-button-padding: 15px;
 
   &.js-menu--is-open {
     display: block;
+    margin-top: -40px;
   }
 }
 

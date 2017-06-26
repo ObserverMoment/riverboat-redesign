@@ -15,12 +15,11 @@
     "color_image_overlay": "#3d4246",
     "image_overlay_opacity": "0",
     "color_body_bg": "#fff",
-    "type_header_family": "Google_Work+Sans_400_sans",
+    "type_header_family": "Google_Source+Sans+Pro_400_sans",
     "type_header_base_size": "24px",
-    "type_base_family": "Google_Work+Sans_400_sans",
+    "type_base_family": "Google_Source+Sans+Pro_400_sans",
     "type_base_size": "15px",
     "type_gridprice_size": "18px",
-    "type_prodprice_size": "18px",
     "type_bold_product_titles": false,
     "share_facebook": true,
     "share_twitter": true,
@@ -48,6 +47,7 @@
     "checkout_accent_color": "#1990c6",
     "checkout_button_color": "#0f465f",
     "checkout_error_color": "#ff6d6d",
+    "type_prodprice_size": "18px",
     "sections": {
       "header": {
         "type": "header",
@@ -81,7 +81,7 @@
         "type": "collection",
         "settings": {
           "title": "Riverboat Gaming Products",
-          "collection": "frontpage",
+          "collection": "our-products",
           "grid": "3",
           "rows": "5",
           "show_vendor": false,
@@ -166,7 +166,16 @@
           "show_collection_image": false,
           "show_vendor": false,
           "sort_enable": true,
-          "tags_enable": true
+          "tags_enable": false
+        }
+      },
+      "related-products": {
+        "type": "related-products",
+        "settings": {
+          "show_related_products": true,
+          "related_title": "You May Also be Interested In",
+          "related_grid_num": "4",
+          "related_grid_row": "1"
         }
       }
     },

@@ -72,9 +72,15 @@
 
   {% for i in (1..break_at) %}
     {% capture randIndex %}
-      {{ 'now' | date: '%S' | times: collection.products.size | divided_by: 60 | times: i | modulo: collection.products.size }}
+      {{ 'now' | date: '%S' | times: collection.products.size | divided_by: 60 }}
     {% endcapture %}
     {% assign index = randIndex | plus: 0 %}
+    {% if index == 0 %}
+      {% assign index = index | plus: i | modulo: collection.products.size %}
+    {% else %}
+      {% assign index = index | times: i | modulo: collection.products.size %}
+    {% endif %}
+
     {% comment %} If you randomly choose the same product as the page we are on then just add one to the index {% endcomment %}
     {% if collection.products[index].handle == current_product.handle %}
       {% assign index = randIndex | plus: 1 %}
