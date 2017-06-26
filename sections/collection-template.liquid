@@ -158,6 +158,7 @@
 
       <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
         {% for product in collection.products %}
+          {% include 'mw_PO_continue' with product %}
           <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
             {% include 'product-card-grid', max_height: max_height %}
           </div>

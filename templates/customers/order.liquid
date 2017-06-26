@@ -33,7 +33,7 @@
           {% for line_item in order.line_items %}
           <tr id="{{ line_item.key }}" class="responsive-table__row" >
             <td data-label="{{ 'customer.order.product' | t }}">
-              {{ line_item.title | link_to: line_item.product.url }}
+              {% include 'mw_PO_order' with line_item %}
               {% if line_item.fulfillment %}
                 <div class="note">
                   {%- assign created_at = line_item.fulfillment.created_at | date: format: 'month_day_year' -%}

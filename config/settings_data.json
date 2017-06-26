@@ -32,9 +32,9 @@
     "social_snapchat_link": "",
     "social_youtube_link": "",
     "social_vimeo_link": "",
-    "favicon": "shopify:\/\/shop_images\/rg-favicon_34082154-b6a5-4c85-afd1-8f3529d0ccb8.png",
-    "checkout_header_image": "shopify:\/\/shop_images\/iStock_85665689_Cropped1400.300_697bf4a5-db11-4a30-b9ac-6642c47d88cf.jpg",
-    "checkout_logo_image": "shopify:\/\/shop_images\/General_Logo_White_410px_93adfd74-4af0-407c-8f94-94b7a0ba149f.png",
+    "favicon": "shopify:\/\/shop_images\/rg-favicon.png",
+    "checkout_header_image": "shopify:\/\/shop_images\/iStock_85665689_Cropped1400.300.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/General_Logo_White_410px.png",
     "checkout_logo_position": "center",
     "checkout_logo_size": "medium",
     "checkout_body_background_image": "",
@@ -45,7 +45,7 @@
     "checkout_heading_font": "Source Sans Pro",
     "checkout_body_font": "Source Sans Pro",
     "checkout_accent_color": "#1990c6",
-    "checkout_button_color": "#0f465f",
+    "checkout_button_color": "#323d48",
     "checkout_error_color": "#ff6d6d",
     "type_prodprice_size": "18px",
     "sections": {
@@ -53,7 +53,7 @@
         "type": "header",
         "settings": {
           "align_logo": "left",
-          "logo": "shopify:\/\/shop_images\/General_Logo_Grey_800px_73d73ed1-179e-47a7-aebd-f76ca4fca761.png",
+          "logo": "shopify:\/\/shop_images\/Website_Logo_410px.png",
           "logo_max_width": "180",
           "main_linklist": "main-menu",
           "message": false,
@@ -101,8 +101,8 @@
         "type": "featured-blog",
         "settings": {
           "title": "Poker Articles and Information",
-          "blog": "poker-related-news-articles-and-information",
-          "post_limit": "3",
+          "blog": "news",
+          "post_limit": "6",
           "blog_show_author": false,
           "blog_show_date": false,
           "show_view_all": true
@@ -120,7 +120,7 @@
           "1497959977432-1": {
             "type": "featured_collection",
             "settings": {
-              "collection": "poker-table-tops"
+              "collection": "table-tops-and-layouts"
             }
           },
           "1497959977432-2": {
@@ -154,7 +154,7 @@
       "cart-template": {
         "type": "cart-template",
         "settings": {
-          "cart_notes_enable": false
+          "cart_notes_enable": true
         }
       },
       "collection-template": {

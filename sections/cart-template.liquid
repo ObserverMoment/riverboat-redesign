@@ -15,8 +15,9 @@
         </thead>
         <tbody>
           {% for item in cart.items %}
-            <tr class="cart__row border-bottom line{{ forloop.index }} cart-flex{% if forloop.first %} border-top{% endif %}">
+            <tr class="cart__row {% include 'mw_PO_cart', code: 'class' %} border-bottom line{{ forloop.index }} cart-flex{% if forloop.first %} border-top{% endif %}" {% include 'mw_PO_cart' with item, code: 'style' %}>
               <td class="cart__image-wrapper cart-flex-item">
+                {% include 'mw_PO_cart' with item, code: 'relation' %}
                 <a href="{{ item.url | within: collections.all }}">
                   <img class="cart__image" src="{{ item | img_url: '95x95', scale: 2 }}" alt="{{ item.title | escape }}">
                 </a>
@@ -47,6 +48,7 @@
                   For more info on line item properties, visit:
                     - http://docs.shopify.com/support/your-store/products/how-do-I-collect-additional-information-on-the-product-page-Like-for-a-monogram-engraving-or-customization
                 {% endcomment %}
+                {% comment %}
                 {%- assign property_size = item.properties | size -%}
                 {% if property_size > 0 %}
                   <div class="cart__meta-text">
@@ -54,9 +56,10 @@
                       {% unless p.last == blank %}
                         {{ p.first }}:
 
-                        {% comment %}
-                          Check if there was an uploaded file associated
-                        {% endcomment %}
+
+                          Check if there was an uploaded file associated - this is a comment
+
+                        
                         {% if p.last contains '/uploads/' %}
                           <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
                         {% else %}
@@ -66,13 +69,17 @@
                     {% endfor %}
                   </div>
                 {% endif %}
+                {% endcomment %}
+
+                {% include 'mw_PO_cart' with item, code: 'properties' %}
 
                 <p class="small--hide">
                   <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="btn btn--small btn--secondary cart__remove">{{ 'cart.general.remove' | t }}</a>
                 </p>
               </td>
               <td class="cart__price-wrapper cart-flex-item">
-                {{ item.price | money }}
+
+                {% include 'mw_PO_cart' with item, code: 'price' %}
 
                 {% for discount in item.discounts %}
                   <div class="cart-item__discount medium-up--hide">{{ discount.title }}</div>
