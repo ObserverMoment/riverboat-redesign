@@ -17,7 +17,7 @@
 {% if section.settings.layout == 'grid' %}
   {%- assign limit = section.settings.grid | times: section.settings.rows -%}
 {% else %}
-  {%- assign limit = 24 -%}
+  {%- assign limit = 33 -%}
 {% endif %}
 
 {% paginate collection.products by limit %}
@@ -335,6 +335,18 @@
           {
             "value": "8",
             "label": "8"
+          },
+          {
+            "value": "9",
+            "label": "9"
+          },
+          {
+            "value": "10",
+            "label": "10"
+          },
+          {
+            "value": "11",
+            "label": "11"
           }
         ]
       },
