@@ -317,7 +317,7 @@ $color-btn-primary-text: {{ settings.color_button_text }};
 
 // Link buttons and secondary cta
 $color-link: $color-body-text;
-$opacity-link-hover: 0.6;
+$opacity-link-hover: 0.8;
 $transition-link-hover: 0.1s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 
 // Backgrounds
@@ -3139,6 +3139,7 @@ h1.product-single__title {
   padding: 20px;
   border: 1px solid #f9f9f9;
   clear: both;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 /*================ Product Images ================*/
@@ -3282,6 +3283,7 @@ h1.product-single__title {
   padding: 5px;
   border: 1px solid #f9f9f9;
   margin-top: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   @include media-query($medium-up) {
     float: right;
   }
@@ -3477,6 +3479,11 @@ h1.product-single__title {
   pointer-events: none;
 }
 
+.edit-options {
+  font-weight: bold;
+  color: #09a5e3;
+}
+
 .cart__row {
   p {
     margin-bottom: 0;
@@ -3493,6 +3500,8 @@ h1.product-single__title {
 
 .cart__subtotal {
   padding-left: $gutter-site / 2;
+  font-weight: bold;
+  font-size: em($font-size-base + 2px);
 
   @include media-query($medium-up) {
     padding-left: $gutter-site;
