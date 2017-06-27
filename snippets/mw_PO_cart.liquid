@@ -14,7 +14,7 @@
                     {% comment %} add BOLD properties {% endcomment %}
               {% if p.first contains '_builder_id' %}{% continue %}{% endif; %}
               {% if p.first contains '_master_builder' %}{% continue %}{% endif; %}
-        			<span class="option-cart-title">{{ p.first }}:</span>
+        			  <span class="option-cart-title">{{ p.first }}:</span>
 					    {% if p.last contains '/uploads/' %}
                 <a class="lightbox" href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
         			{% else %}

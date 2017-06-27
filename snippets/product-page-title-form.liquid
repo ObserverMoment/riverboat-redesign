@@ -26,7 +26,7 @@
       <span class="product-price__price product-price__price-{{ section.id }}">
         <span id="ProductPrice-{{ section.id }}"
           itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
-          {{ current_variant.price | money }} Inc VAT and UK Mainland Delivery
+          <span id="productPrice">{{ current_variant.price | money }}</span> Inc VAT and UK Mainland Delivery
         </span>
         <span class="product-price__sale-label product-price__sale-label-{{ section.id }} hide">{{ 'products.product.on_sale' | t }}</span>
       </span>
@@ -34,7 +34,7 @@
   </p>
 
   <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}" data-section="{{ section.id }}">
-
+    <span class="mw-product-options"></span>
     {% unless product.options.size == 1 and product.variants[0].title == 'Default Title' %}
       {% for option in product.options_with_values %}
         <div class="selector-wrapper js product-form__item">
@@ -61,9 +61,6 @@
         {% endif %}
       {% endfor %}
     </select>
-
-    <span class="mw-product-options"></span>
-
     {% if section.settings.show_quantity_selector %}
       <div class="product-form__item product-form__item--quantity">
         <label for="Quantity">{{ 'products.product.quantity' | t }}</label>

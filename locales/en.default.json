@@ -108,9 +108,9 @@
       "title": "Your cart",
       "note": "Add a note to your order",
       "remove": "Remove",
-      "subtotal": "Subtotal",
+      "subtotal": "Including VAT and Delivery",
       "savings": "You're saving",
-      "shipping_at_checkout": "Your total including VAT and Delivery",
+      "shipping_at_checkout": "Please ensure that you have selected the correct delivery area. If you are at a non-mainland address which is not listed then please contact us before ordering.",
       "update": "Update",
       "checkout": "Check out",
       "empty": "Your cart is currently empty.",
@@ -136,7 +136,7 @@
       }
     },
     "sorting": {
-      "title": "Sort",
+      "title": "Sort by",
       "featured": "Featured",
       "best_selling": "Best Selling",
       "az": "Alphabetically, A-Z",
